@@ -12,7 +12,7 @@ Theme chooser / randomizer for Termite terminal
 
 #Important
 
-Make sure your themes are stored in ~/.config/termite/themes, WILL NOT work in other termite config locations unless you edit the python script. 
+- Make sure your themes are stored in ~/.config/termite/themes, WILL NOT work in other termite config locations unless you edit the python script. 
 
 Enjoy!
 
