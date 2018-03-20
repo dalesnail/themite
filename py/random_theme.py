@@ -21,7 +21,7 @@ config = home + '/.config/termite/config'
 # Choose a random termite config
 theme = random.choice(os.listdir(home + '/.config/termite/themes/'))
 
-#Themite Main choices area
+# Themite Main choices area
 themite = input("1. Random 2. List Themes 3. Choose Theme [1/2/3]: ")
 
 if themite == "1":
