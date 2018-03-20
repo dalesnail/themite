@@ -2,7 +2,7 @@
 
 Theme chooser / randomizer for Termite terminal
 
-'''
+-----------------------------------------------
 
 - Create the dir ~/.config/termite/themes and place some configs into it
 
