@@ -25,7 +25,8 @@ theme = random.choice(os.listdir(home + '/.config/termite/themes/'))
 themite = input("1. Random 2. List Themes 3. Choose Theme [1/2/3]: ")
 
 if themite == "1":
-    copyfile(home + '/.config/termite/themes/' + theme, config) # Copy the random config file into the correct config location
+    # Copy the random config file into the correct config location
+    copyfile(home + '/.config/termite/themes/' + theme, config) 
 
 elif themite == "2":
     List = os.listdir(home + '/.config/termite/themes')
