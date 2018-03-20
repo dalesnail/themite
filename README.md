@@ -1,6 +1,6 @@
 # Themite
 
-Theme chooser / randomizer for Termite terminal
+__Theme chooser / randomizer for Termite terminal__
 
 -----------------------------------------------
 
