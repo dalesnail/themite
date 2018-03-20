@@ -10,10 +10,10 @@ Theme chooser / randomizer for Termite terminal
 
 - This gets very repetative, so make a bash alias if possible.
 
-#Important
+__#Important#__
 
 - Make sure your themes are stored in ~/.config/termite/themes, WILL NOT work in other termite config locations unless you edit the python script. 
 
 Enjoy!
 
-'''
+----------------------------------------------------------------------------------------------
