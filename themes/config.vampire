@@ -3,7 +3,7 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 9
+font = tamzen 12
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -45,7 +45,7 @@ scrollback_lines = 10000
 foreground      = #ba8aae
 foreground_bold = #ba8aae
 cursor          = #3aa05c
-background      = #332c32
+background      = rgba(43,48,59,0.95)
 
 # black
 color0  = #242424
