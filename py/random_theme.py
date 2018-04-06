@@ -5,6 +5,7 @@ from os.path import expanduser
 import random
 from shutil import copyfile
 import subprocess
+import re
 
 '''
 Create the dir ~/.config/termite/themes and place some random configs into it
@@ -30,12 +31,14 @@ if themite == "1":
 
 elif themite == "2":
     List = os.listdir(home + '/.config/termite/themes')
-    for file in List:
-        print(file)
+    for filename in List:
+        m = re.search('(?<=config.)\w+', filename)
+        if m:
+            print(m.group(0))
 
 elif themite == "3":
     Choice = input("Theme: ")
-    copyfile(home + '/.config/termite/themes/' + Choice, config)
+    copyfile(home + '/.config/termite/themes/config.' + Choice, config)
 
 # Use subprocess to run the reload command
 subprocess.check_call(['killall', '-USR1', 'termite'])
