@@ -57,7 +57,7 @@ elif themite == "3":
     Choice = input("Theme: ")
     copyfile(home + '/.config/termite/themite/themes/config.' + Choice, config)
     subprocess.check_call(['clear'])
-    subprocess.call('/home/dalesnail/.config/termite/themite/color.sh', shell=True)
+    subprocess.call('~/.config/termite/themite/color.sh', shell=True)
 
 elif themite == "4":
     font = input("Font '<font name> <font size>': ")
