@@ -14,6 +14,8 @@ __#Important#__
 
 - Make sure your themes are stored in ~/.config/termite/themite/themes, __WILL NOT__ work in other termite config locations unless you edit the python script. 
 
+- Config files titles should be formatted as "config.themename"
+
 - Font line in your configs should always be on line 10 (or 9 with python). At least until I find a better way to change this. 
 
 
