@@ -30,41 +30,34 @@ splash = """\
 """
 
 
-# Clear the terminal
+home = expanduser("~")
+config = home + '/.config/termite/config'
+theme = random.choice(os.listdir(home + '/.config/termite/themite/themes/'))
+
+
 subprocess.check_call(['clear'])
 
-# No place like ~/
-home = expanduser("~")
-
-# Current termite config file
-config = home + '/.config/termite/config'
-
-# Choose a random termite config
-theme = random.choice(os.listdir(home + '/.config/termite/themes/'))
-
-# Themite Main choices area
 themite = input(splash)
-
 if themite == "1":
-    # Copy the random config file into the correct config location
-    copyfile(home + '/.config/termite/themes/' + theme, config) 
+    copyfile(home + '/.config/termite/themite/themes/' + theme, config) 
 
 elif themite == "2":
-    List = os.listdir(home + '/.config/termite/themes')
+    List = os.listdir(home + '/.config/termite/themite/themes')
     for filename in List:
         m = re.search('(?<=config.)\w+', filename)
         if m:
             print(m.group(0))
 
 elif themite == "3":
-    List = os.listdir(home + '/.config/termite/themes')
+    List = os.listdir(home + '/.config/termite/themite/themes')
     for filename in List:
         m = re.search('(?<=config.)\w+', filename)
         if m:
-            print(m.group(0) + 
-                   " ")
+            print(m.group(0))
     Choice = input("Theme: ")
-    copyfile(home + '/.config/termite/themes/config.' + Choice, config)
+    copyfile(home + '/.config/termite/themite/themes/config.' + Choice, config)
+    subprocess.check_call(['clear'])
+    subprocess.call('/home/dalesnail/.config/termite/themite/color.sh', shell=True)
 
 elif themite == "4":
     font = input("Font '<font name> <font size>': ")
@@ -72,5 +65,4 @@ elif themite == "4":
     lines[9] = "font = " + font
     open(config, 'w').write('\n'.join(lines))
 
-# Use subprocess to run the reload command
 subprocess.check_call(['killall', '-USR1', 'termite'])
