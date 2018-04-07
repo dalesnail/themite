@@ -4,15 +4,18 @@ __Theme chooser / randomizer for Termite terminal__
 
 -----------------------------------------------
 
-- Create the dir __*~/.config/termite/themes*__ and place some configs into it with __*"config.ThemeName"*__ as the name format(ie, "config.vampire")
+- Git clone or copy into '~/.config/termite/'.
 
-- Run this script via: python /path/to/random_termite_theme.py (Preferred location would be ~/.config/termite/py/random_termite_theme.py)
+- Run with 'python ~/.config/termite/themite/themite.py'. 
 
-- This gets very repetative, so make a bash alias if possible.
+- Make a bash alias for this, pretty annoying to type in otherwise. 
 
 __#Important#__
 
-- Make sure your themes are stored in ~/.config/termite/themes, __WILL NOT__ work in other termite config locations unless you edit the python script. 
+- Make sure your themes are stored in ~/.config/termite/themite/themes, __WILL NOT__ work in other termite config locations unless you edit the python script. 
+
+- Font line in your configs should always be on line 10 (or 9 with python). At least until I find a better way to change this. 
+
 
 Enjoy!
 
