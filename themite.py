@@ -56,8 +56,26 @@ elif themite == "3":
         m = re.search('(?<=config.)\w+', filename)
         if m:
             print(m.group(0))
-    Choice = input("Theme: ")
-    copyfile(home + '/.config/termite/themite/themes/config.' + Choice, config)
+    theme_dir = home + '/.config/termite/themite/themes/config.'
+    Choice = theme_dir + input("Theme: ")
+    # Defining color block in config
+    f = open(home + '/.config/termite/config', 'r+')
+    content = f.read()
+    start = content.index('\n[colors]')
+    end = content.index('\n[end-colors]')
+    config_colors = content[start:end]
+    #Defining color block in theme
+    t = open(Choice, 'r+')
+    t_content = t.read()
+    t_start = t_content.index('\n[colors]')
+    t_end = t_content.index('\n[end-colors]')
+    theme = t_content[t_start:t_end]
+
+    with open(home + '/.config/termite/config', 'r+') as c:
+        content = c.read()
+        c.seek(0)
+        c.truncate()
+        c.write(content.replace(config_colors, theme))
     subprocess.check_call(['clear'])
     subprocess.call('~/.config/termite/themite/color.sh', shell=True)
 
