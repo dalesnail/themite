@@ -41,7 +41,24 @@ subprocess.check_call(['clear'])
 
 themite = input(splash)
 if themite == "1":
-    copyfile(home + '/.config/termite/themite/themes/' + theme, config) 
+    theme_dir = home + '/.config/termite/themite/themes/'
+    # Defining color block in config
+    f = open(home + '/.config/termite/config', 'r+')
+    content = f.read()
+    start = content.index('\n[colors]')
+    end = content.index('\n[end-colors]')
+    config_colors = content[start:end]
+    #Defining color block in theme
+    r = open(theme_dir + theme, 'r+')
+    r_content = r.read()
+    r_start = r_content.index('\n[colors]')
+    r_end = r_content.index('\n[end-colors]') 
+    random = r_content[r_start:r_end]
+    with open(config, 'r+') as r:
+        r_content = r.read()
+        r.seek(0)
+        r.truncate()
+        r.write(content.replace(config_colors, random))
 
 elif themite == "2":
     List = os.listdir(home + '/.config/termite/themite/themes')
