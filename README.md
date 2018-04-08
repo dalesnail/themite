@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/dalesnail/themite/master/title.png">
+  <img src="https://raw.githubusercontent.com/dalesnail/themite/master/title.png"><br>
   Theme chooser / randomizer for Termite terminal
 </div>
 
