@@ -59,6 +59,8 @@ if themite == "1":
         r.seek(0)
         r.truncate()
         r.write(content.replace(config_colors, random))
+    subprocess.check_call(['clear'])
+    subprocess.call('~/.config/termite/themite/color.sh', shell=True)
 
 elif themite == "2":
     List = os.listdir(home + '/.config/termite/themite/themes')
