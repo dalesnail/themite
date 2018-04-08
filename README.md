@@ -3,8 +3,6 @@
   Theme chooser / randomizer for Termite terminal
 </div>
 
-![Demo](demo.gif)
-
 -----------------------------------------------
 
 - Git clone or copy into '~/.config/termite/'.
@@ -19,9 +17,12 @@ __#Important#__
 
 - I have set it up recently to be able to replace only colors with theme swaps, to keep fonts and other non color elements constant. But note, your color blocks will have to have the footer "[end-colors]" for this to work. 
 
+- And again, because it has become so important to this script, __Begin your color section with [colors], and end your color sections with [end-colors]__
+
 - Theme files names should be formatted as "config.themename"
 
 Enjoy!
 
 ----------------------------------------------------------------------------------------------
 
+![Demo](demo.gif)
