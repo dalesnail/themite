@@ -6,7 +6,6 @@
 
 
 
-# Themite
 
 __Theme chooser / randomizer for Termite terminal__
 
