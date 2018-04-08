@@ -5,9 +5,9 @@
                              ▀▀▀     ▀   █    █▀▀▀     ▀▀  █ ▀▀▀    ▀▀▀  ·  ▀▀▀  ·  ·  ·  
 
 
-
-
-__Theme chooser / randomizer for Termite terminal__
+<p align="center">
+  <b>Theme chooser / randomizer for Termite terminal</b>
+</p>
 
 -----------------------------------------------
 
