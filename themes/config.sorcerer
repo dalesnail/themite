@@ -1,22 +1,3 @@
-[options]
-scroll_on_output = false
-scroll_on_keystroke = true
-audible_bell = false
-mouse_autohide = false
-allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
-clickable_url = true
-font = DejaVu Sans Mono 10
-scrollback_lines = 10000
-search_wrap = true
-icon_name = utilities-terminal
-geometry = 750x500
-clickable_url = true
-cursor_blink = system
-cursor_shape = block
-browser = exo-open
-filter_unmatched_urls = true
 
 [colors]
 
