@@ -17,9 +17,6 @@ __#Important#__
 
 - Theme files names should be formatted as "config.themename"
 
-- Font line in your configs should always be on line 10 (or 9 with python). At least until I find a better way to change this. 
-
-
 Enjoy!
 
 ----------------------------------------------------------------------------------------------
