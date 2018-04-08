@@ -6,6 +6,8 @@ import random
 from shutil import copyfile
 import subprocess
 import re
+import sys
+import fileinput
 
 '''                                                                          
 Create the dir ~/.config/termite/themes and place some random configs into it
@@ -60,9 +62,13 @@ elif themite == "3":
     subprocess.call('~/.config/termite/themite/color.sh', shell=True)
 
 elif themite == "4":
-    font = input("Font '<font name> <font size>': ")
-    lines = open(config).read().splitlines()
-    lines[9] = "font = " + font
-    open(config, 'w').write('\n'.join(lines))
+    font = 'font = '
+    new_font = "font = " + input('Font <Name> <Size>:')
+    x = fileinput.input(files=config, inplace=1)
+    for line in x:
+        if font in line:
+            line = new_font
+        print(line.strip())
+    x.close()
 
 subprocess.check_call(['killall', '-USR1', 'termite'])
