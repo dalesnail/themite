@@ -11,7 +11,7 @@ import fileinput
 
 '''                                                                          
 Create the dir ~/.config/termite/themes and place some random configs into it
-Run this script via: python random_termite_theme.py                          
+Run this script via: python path/to/themite.py                          
 Enjoy!                                                                       
 '''                                                                          
 
@@ -77,13 +77,13 @@ elif themite == "3":
             print(m.group(0))
     theme_dir = home + '/.config/termite/themite/themes/config.'
     Choice = theme_dir + input("Theme: ")
-    # Defining color block in config
+    
     f = open(home + '/.config/termite/config', 'r+')
     content = f.read()
     start = content.index('\n[colors]')
     end = content.index('\n[end-colors]')
     config_colors = content[start:end]
-    #Defining color block in theme
+    
     t = open(Choice, 'r+')
     t_content = t.read()
     t_start = t_content.index('\n[colors]')
