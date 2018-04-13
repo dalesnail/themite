@@ -84,7 +84,7 @@ elif themite == "3":
         c.truncate()
         c.write(content.replace(Xcolors, t_colors))
     subprocess.call('xrdb ~/.Xresources', shell=True)
-    print('Random theme is now applied! Restart URXVT to see your changes!')
+    print('Theme is now applied! Restart URXVT to see your changes!')
 
 elif themite == "4":
     font = 'URxvt.font: xft:'
@@ -96,7 +96,7 @@ elif themite == "4":
         print(line.strip())
     x.close()
     subprocess.call('xrdb ~/.Xresources', shell=True)
-    print('Random theme is now applied! Restart URXVT to see your changes!')
+    print('New Font is now applied! Restart URXVT to see your changes!')
 
 
 
