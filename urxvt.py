@@ -20,13 +20,17 @@ Color blocks in both the .Xresources file, and your themes will have to end with
 
 splash = """\
 
-        URXVT
+       ▄• ▄▌    ▄▄▄      ▐▄• ▄      ▌ ▐·    ▄▄▄▄▄ 
+       █▪██▌    ▀▄ █·     █▌█▌▪    ▪█·█▌    •██  
+       █▌▐█▌    ▐▀▀▄      ·██·     ▐█▐█•     ▐█.▪
+       ▐█▄█▌    ▐█•█▌    ▪▐█·█▌     ███      ▐█▌
+        ▀▀▀     .▀  ▀    •▀▀ ▀▀    . ▀       ▀▀▀ 
 
-        1.          2.          3.           4. 
-    ________________________________________________
-   |                                                |
-   | RANDOM   LIST THEMES   CHOOSE THEME    FONT    |
-   |________________________________________________|
+         1.          2.          3.           4. 
+     _____________________________________________
+    |                                             |
+    | RANDOM | LIST THEMES | CHOOSE THEME |  FONT |
+    |_____________________________________________|
 
 """
 
@@ -41,7 +45,7 @@ start = content.index('\n! special')
 end = content.index('\n! end-colors')
 Xcolors = content[start:end]
 
-#subprocess.check_call(['clear'])
+subprocess.check_call(['clear'])
 
 themite = input(splash)
 if themite == "1":
