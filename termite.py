@@ -29,35 +29,34 @@ splash = """\
        |_______________________________________________________________|
 
 """
-
-
 home = expanduser("~")
 config = home + '/.config/termite/config'
 theme = random.choice(os.listdir(home + '/.config/themite/themes/termite/'))
-# Defining color block in config
-f = open(home + '/.config/termite/config', 'r+')
-content = f.read()
-start = content.index('\n[colors]')
-end = content.index('\n[end-colors]')
-config_colors = content[start:end]
+#Function for theme swapping
+def theme_swap(t):
+    f = open(config, 'r+')
+    content = f.read()
+    start = content.index('\n[colors]')
+    end = content.index('\n[end-colors')
+    config_colors = content[start:end]
+    t = open(t, 'r+')
+    tcontent = t.read()
+    tstart = tcontent.index('\n[colors]')
+    tend = tcontent.index('\n[end-colors]')
+    theme_colors = tcontent[tstart:tend]
+    print(theme_colors)
+    with open(config, 'r+') as swap:
+        swap_content = swap.read()
+        swap.seek(0)
+        swap.truncate()
+        swap.write(content.replace(config_colors, theme_colors))
 
 
 subprocess.check_call(['clear'])
-
 themite = input(splash)
 if themite == "1":
     theme_dir = home + '/.config/themite/themes/termite/'
-    #Defining color block in theme
-    r = open(theme_dir + theme, 'r+')
-    r_content = r.read()
-    r_start = r_content.index('\n[colors]')
-    r_end = r_content.index('\n[end-colors]') 
-    random = r_content[r_start:r_end]
-    with open(config, 'r+') as r:
-        r_content = r.read()
-        r.seek(0)
-        r.truncate()
-        r.write(content.replace(config_colors, random))
+    theme_swap(theme_dir + theme)
     subprocess.check_call(['clear'])
     subprocess.call('~/.config/themite/color.sh', shell=True)
 
@@ -75,19 +74,7 @@ elif themite == "3":
         if m:
             print(m.group(0))
     theme_dir = home + '/.config/themite/themes/termite/config.'
-    Choice = theme_dir + input("Theme: ")
-    #Defining color block in theme
-    t = open(Choice, 'r+')
-    t_content = t.read()
-    t_start = t_content.index('\n[colors]')
-    t_end = t_content.index('\n[end-colors]')
-    theme = t_content[t_start:t_end]
-
-    with open(home + '/.config/termite/config', 'r+') as c:
-        content = c.read()
-        c.seek(0)
-        c.truncate()
-        c.write(content.replace(config_colors, theme))
+    theme_swap(theme_dir + input("Theme: "))
     subprocess.check_call(['clear'])
     subprocess.call('~/.config/themite/color.sh', shell=True)
 
