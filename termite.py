@@ -44,7 +44,6 @@ def theme_swap(t):
     tstart = tcontent.index('\n[colors]')
     tend = tcontent.index('\n[end-colors]')
     theme_colors = tcontent[tstart:tend]
-    print(theme_colors)
     with open(config, 'r+') as swap:
         swap_content = swap.read()
         swap.seek(0)

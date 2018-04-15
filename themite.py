@@ -30,6 +30,7 @@ elif os.path.exists(termite) == True and os.path.exists(urxvt) == False:
     os.system('python ~/.config/themite/termite.py')
 
 elif os.path.exists(termite) == True and os.path.exists(urxvt) == True:
+    subprocess.check_call(['clear'])
     Choose = input(splash)
     if Choose == '1':
         os.system('python ~/.config/themite/termite.py')

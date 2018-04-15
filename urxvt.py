@@ -38,28 +38,36 @@ splash = """\
 home = expanduser("~")
 Xr = home + '/.Xresources'
 theme_dir = home + '/.config/themite/themes/urxvt/'
+#Function to swap colors
+def theme_swap(t):
+    f = open(Xr, 'r+')
+    content = f.read()
+    start = content.index('\n! special')
+    end = content.index('\n! end-colors')
+    config_colors = content[start:end]
+    t = open(t, 'r+')
+    tcontent = t.read()
+    tstart = tcontent.index('\n! special')
+    tend = tcontent.index('\n! end-colors')
+    theme_colors = tcontent[tstart:tend]
+    with open(Xr, 'r+') as swap:
+        swap_content = swap.read()
+        swap.seek(0)
+        swap.truncate()
+        swap.write(content.replace(config_colors, theme_colors))
 #color block defined in .Xresources
-X = open(Xr, 'r+')
-content = X.read()
-start = content.index('\n! special')
-end = content.index('\n! end-colors')
-Xcolors = content[start:end]
+#X = open(Xr, 'r+')
+#content = X.read()
+#start = content.index('\n! special')
+#end = content.index('\n! end-colors')
+#Xcolors = content[start:end]
 
 subprocess.check_call(['clear'])
 
 themite = input(splash)
 if themite == "1":
     random = random.choice(os.listdir(home + '/.config/themite/themes/urxvt/'))
-    r = open(home + '/.config/themite/themes/urxvt/' + random, 'r+')
-    r_content = r.read()
-    r_start = r_content.index('\n! special')
-    r_end = r_content.index('\n! end-colors')
-    r_colors = r_content[r_start:r_end]
-    #print(r_colors)
-    with open(Xr, 'r+') as r:
-        r.seek(0)
-        r.truncate()
-        r.write(content.replace(Xcolors, r_colors))
+    theme_swap(theme_dir + random)
     subprocess.call('xrdb ~/.Xresources', shell=True)
     print('Random theme is now applied! Restart URXVT to see your changes!')
 
@@ -77,16 +85,7 @@ elif themite == "3":
         if m:
             print(m.group(0))
     choice = theme_dir + '.Xresources.' + input("Theme: ")
-    t = open(choice, 'r+')
-    t_content = t.read()
-    t_start = t_content.index('\n! special')
-    t_end = t_content.index('\n! end-colors')
-    t_colors = t_content[t_start:t_end]
-    with open(Xr , 'r+') as c:
-        content = c.read()
-        c.seek(0)
-        c.truncate()
-        c.write(content.replace(Xcolors, t_colors))
+    theme_swap(choice)
     subprocess.call('xrdb ~/.Xresources', shell=True)
     print('Theme is now applied! Restart URXVT to see your changes!')
 
