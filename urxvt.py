@@ -55,15 +55,8 @@ def theme_swap(t):
         swap.seek(0)
         swap.truncate()
         swap.write(content.replace(config_colors, theme_colors))
-#color block defined in .Xresources
-#X = open(Xr, 'r+')
-#content = X.read()
-#start = content.index('\n! special')
-#end = content.index('\n! end-colors')
-#Xcolors = content[start:end]
 
 subprocess.check_call(['clear'])
-
 themite = input(splash)
 if themite == "1":
     random = random.choice(os.listdir(home + '/.config/themite/themes/urxvt/'))
