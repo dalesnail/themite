@@ -31,7 +31,7 @@ __Usage__
 
 Arguments have been added to the script here to make for quicker theme swapping. 
 
-- -ttheme and -utheme - This will change the theme for termite(-ttheme) and URXVT(utheme), if you use "Random" a random theme will be chosen. Format: 'themite -ttheme <ProfileName>
+- -ttheme and -utheme - This will change the theme for termite(-ttheme) and URXVT(utheme), if you use "Random" a random theme will be chosen. Format: 'themite -ttheme "ProfileName"'
 
 - -list - This will list the available themes, t for termite u for URXVT. Eg: "themite -list t"
 
