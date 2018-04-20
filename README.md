@@ -33,9 +33,9 @@ Arguments have been added to the script here to make for quicker theme swapping.
 
 - -ttheme and -utheme - This will change the theme for termite(-ttheme) and URXVT(utheme), if you use "Random" a random theme will be chosen. Format: 'themite -ttheme "ProfileName"'
 
-- -list - This will list the available themes, t for termite u for URXVT. Eg: "themite -list t"
+- -list - This will list the available themes, t for termite u for URXVT. e.g. "themite -list t"
 
-- -font - this will put you into the prompt for a new font, same as above, t for termite u for urxvt. eg: "themite -font t"
+- -font - this will put you into the prompt for a new font, same as above, t for termite u for urxvt. e.g. "themite -font t"
 
 Enjoy!
 
