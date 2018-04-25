@@ -29,62 +29,84 @@ splash = """\
        |_______________________________________________________________|
 
 """
-home = expanduser("~")
-config = home + '/.config/termite/config'
-theme = random.choice(os.listdir(home + '/.config/themite/themes/termite/'))
+#constants
+
+#home directory
+home = expanduser("~")  
+
+#config directory
+config = home + '/.config/termite/config' 
+
+#random theme selected
+theme = random.choice(os.listdir(home + '/.config/themite/themes/termite/')) #random theme selected
+
 #Function for theme swapping
 def theme_swap(t):
+    #open the existing config file
     f = open(config, 'r+')
     content = f.read()
+
+    #grab the index range of the relevant part (the colors)
     start = content.index('\n[colors]')
     end = content.index('\n[end-colors')
     config_colors = content[start:end]
+
+    #opens the theme they selected
     t = open(t, 'r+')
     tcontent = t.read()
     tstart = tcontent.index('\n[colors]')
     tend = tcontent.index('\n[end-colors]')
     theme_colors = tcontent[tstart:tend]
+
+    #with block to open and close the existing config file
     with open(config, 'r+') as swap:
+        #remove the existing color options
         swap_content = swap.read()
         swap.seek(0)
         swap.truncate()
+        #write the new theme colors onto the file
         swap.write(content.replace(config_colors, theme_colors))
 
-
-subprocess.check_call(['clear'])
-themite = input(splash)
-if themite == "1":
-    theme_dir = home + '/.config/themite/themes/termite/'
-    theme_swap(theme_dir + theme)
+#created method so it can be called again when asking to list the themes
+def main():
     subprocess.check_call(['clear'])
-    subprocess.call('~/.config/themite/color.sh', shell=True)
+    themite = input(splash)
 
-elif themite == "2":
-    List = os.listdir(home + '/.config/themite/themes/termite/')
-    for filename in List:
-        m = re.search('(?<=config.)\w+', filename)
-        if m:
-            print(m.group(0))
+    if themite == "1":
+        theme_dir = home + '/.config/themite/themes/termite/'
+        theme_swap(theme_dir + theme)
+        subprocess.check_call(['clear'])
+        subprocess.call('~/.config/themite/color.sh', shell=True)
 
-elif themite == "3":
-    List = os.listdir(home + '/.config/themite/themes/termite/')
-    for filename in List:
-        m = re.search('(?<=config.)\w+', filename)
-        if m:
-            print(m.group(0))
-    theme_dir = home + '/.config/themite/themes/termite/config.'
-    theme_swap(theme_dir + input("Theme: "))
-    subprocess.check_call(['clear'])
-    subprocess.call('~/.config/themite/color.sh', shell=True)
+    elif themite == "2":
+        List = os.listdir(home + '/.config/themite/themes/termite/')
+        for filename in List:
+            m = re.search('(?<=config.)\w+', filename)
+            if m:
+                print(m.group(0))
+        temp = input("Press ENTER to continue")
+        main()
 
-elif themite == "4":
-    font = 'font = '
-    new_font = "font = " + input('Font <Name> <Size>:')
-    x = fileinput.input(files=config, inplace=1)
-    for line in x:
-        if font in line:
-            line = new_font
-        print(line.strip())
-    x.close()
+    elif themite == "3":
+        List = os.listdir(home + '/.config/themite/themes/termite/')
+        for filename in List:
+            m = re.search('(?<=config.)\w+', filename)
+            if m:
+                print(m.group(0))
+        theme_dir = home + '/.config/themite/themes/termite/config.'
+        theme_swap(theme_dir + input("Theme: "))
+        subprocess.check_call(['clear'])
+        subprocess.call('~/.config/themite/color.sh', shell=True)
 
+    elif themite == "4":
+        font = 'font = '
+        new_font = "font = " + input('Font <Name> <Size>:')
+        x = fileinput.input(files=config, inplace=1)
+        for line in x:
+            if font in line:
+                line = new_font
+            print(line.strip())
+        x.close()
+main()
+#exit from termite, and reopen
 subprocess.check_call(['killall', '-USR1', 'termite'])
