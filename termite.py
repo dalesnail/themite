@@ -69,22 +69,28 @@ def theme_swap(t):
 
 #created method so it can be called again when asking to list the themes
 def main():
+    #clear the screen, and print out the splash
     subprocess.check_call(['clear'])
     themite = input(splash)
-
+    
+    #handle each case
     if themite == "1":
+        #get the theme dir, and append the randomly selected theme to create the path
+        #call the theme_swap method on newly created path
         theme_dir = home + '/.config/themite/themes/termite/'
         theme_swap(theme_dir + theme)
+        #clear the screen, and call the color.sh script
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
 
     elif themite == "2":
         List = os.listdir(home + '/.config/themite/themes/termite/')
+        print("\n")
         for filename in List:
             m = re.search('(?<=config.)\w+', filename)
             if m:
                 print(m.group(0))
-        temp = input("Press ENTER to continue")
+        temp = input("\nPress ENTER to continue")
         main()
 
     elif themite == "3":
@@ -107,6 +113,8 @@ def main():
                 line = new_font
             print(line.strip())
         x.close()
+
 main()
+
 #exit from termite, and reopen
 subprocess.check_call(['killall', '-USR1', 'termite'])
