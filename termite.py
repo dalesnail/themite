@@ -14,7 +14,7 @@ Run this script via: python termite.py
 Enjoy!                                                                       
 '''                                                                          
 
-splash = """\
+splash = f"""\
 
        ▄▄▄▄▄▄     ▄ .▄    ▄▄▄ .    • ▄   ▄▄ ·.   ▀    ▄▄▄▄▄▄    ▄▄▄ .
         •██ ·    ██ ▐█    █ .▀·    ·██▄▐███ ▪   ██     •██      ▀▄.▀·
@@ -76,7 +76,7 @@ def main():
     current.close()
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
-    themite = input(splash + "\nCurrent theme: " + currentTheme + "\n" )
+    themite = input(splash + "        Current theme: " + currentTheme + "\n\n" )
 
     #Random
     if themite == "1":
@@ -85,7 +85,7 @@ def main():
         #clear the screen, and call the color.sh script
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
-        print("Current theme: " + theme_swap(theme_dir + theme))
+        print("        Random theme: " + theme_swap(theme_dir + theme) + "\n")
 
     #List
     elif themite == "2":
