@@ -1,41 +1,48 @@
-
 [colors]
+# Base16 OneDark
+# Author: Lalit Magant (http://github.com/tilal6991)
 
-# special
-background = rgba(43,48,59,0.95)
 foreground      = #abb2bf
-foreground_bold = #abb2bf
-cursor          =
+foreground_bold = #b6bdca
+cursor          = #b6bdca
+background      = #282c34
 
-# black
+# 16 color space
+
+# Black, Gray, Silver, White
 color0  = #282c34
-color8  = #5c6370
-
-# red
-color1  = #e06c75
-color9  = #be5046
-
-# green
-color2  = #98c379
-color10 = #7a9f60
-
-# yellow
-color3  = #e5c07b
-color11 = #d19a66
-
-# blue
-color4  = #61afef
-color12 = #3b84c0
-
-# magenta
-color5  = #c678dd
-color13 = #9a52af
-
-# cyan
-color6  = #56b6c2
-color14 = #3c909b
-
-# white
+color8  = #545862
 color7  = #abb2bf
-color15 = #828997
-[end-colors]
+color15 = #c8ccd4
+
+# Red
+color1  = #e06c75
+color9  = #e06c75
+
+# Green
+color2  = #98c379
+color10 = #98c379
+
+# Yellow
+color3  = #e5c07b
+color11 = #e5c07b
+
+# Blue
+color4  = #61afef
+color12 = #61afef
+
+# Purple
+color5  = #c678dd
+color13 = #c678dd
+
+# Teal
+color6  = #56b6c2
+color14 = #56b6c2
+
+# Extra colors
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64
+color21 = #b6bdca
