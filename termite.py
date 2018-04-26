@@ -47,17 +47,13 @@ def theme_swap(t):
     content = f.read()
 
     #grab the index range of the relevant part (the colors)
-    print(content)
     start = content.index('[colors]')
-    #end = content.index('\n[end-colors')
     config_colors = content[start:]
 
     #opens the theme they selected
     t = open(t, 'r+')
     tcontent = t.read()
-    print(tcontent)
     tstart = tcontent.index('[colors]')
-    #tend = tcontent.index('\n[end-colors]')
     theme_colors = tcontent[tstart:]
 
     #with block to open and close the existing config file
@@ -87,8 +83,11 @@ def main():
         subprocess.call('~/.config/themite/color.sh', shell=True)
 
     elif themite == "2":
+        #get the list of all the themes in the termite folder
         List = os.listdir(home + '/.config/themite/themes/termite/')
         print("\n")
+
+        #for each file, print out the part after 'config.', which should be the name
         for filename in List:
             m = re.search('(?<=config.)\w+', filename)
             if m:
@@ -97,17 +96,24 @@ def main():
         main()
 
     elif themite == "3":
+        #get the list of all the themes in the termite folder
         List = os.listdir(home + '/.config/themite/themes/termite/')
+        
+        #print out the name of the themes
         for filename in List:
             m = re.search('(?<=config.)\w+', filename)
             if m:
                 print(m.group(0))
+
+        #take user input and give it as an argument for the theme swap method
         theme_dir = home + '/.config/themite/themes/termite/config.'
         theme_swap(theme_dir + input("Theme: "))
+        #reset the terminal so changes occur immediately, and run color script
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
-
+    
     elif themite == "4":
+        #feel like this part can be improved somewhat - maybe provide a list of the system installed fonts?
         font = 'font = '
         new_font = "font = " + input('Font <Name> <Size>:')
         x = fileinput.input(files=config, inplace=1)
