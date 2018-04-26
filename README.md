@@ -18,7 +18,7 @@ In the unlikely event both are installed it will prompt you to choose which one 
 
 - Make a bash alias for this, pretty annoying to type in otherwise. 
 
-__#Important#__
+#__Important__
 
 - Make sure your themes for termite are stored in ~/.config/themite/themes/termite/, __WILL NOT__ work in other termite config locations unless you edit the python script. 
 
