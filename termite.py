@@ -37,6 +37,8 @@ home = expanduser("~")
 #config directory
 config = home + '/.config/termite/config' 
 
+#get the current theme for printing
+
 #random theme selected
 theme = random.choice(os.listdir(home + '/.config/themite/themes/termite/')) #random theme selected
 
@@ -52,6 +54,7 @@ def theme_swap(t):
 
     #opens the theme they selected
     t = open(t, 'r+')
+    currentTheme = t.name[(t.name.index("config.") + 7):]
     tcontent = t.read()
     tstart = tcontent.index('[colors]')
     theme_colors = tcontent[tstart:]
@@ -65,22 +68,25 @@ def theme_swap(t):
         #write the new theme colors onto the file
         swap.write(content.replace(config_colors, theme_colors))
 
+    return currentTheme
+
 #created method so it can be called again when asking to list the themes
 def main():
     #clear the screen, and print out the splash
     subprocess.check_call(['clear'])
+    #themite = input(splash + "\nCurrent theme: " + currentTheme)
     themite = input(splash)
-    print(theme)
 
     #handle each case
     if themite == "1":
         #get the theme dir, and append the randomly selected theme to create the path
         #call the theme_swap method on newly created path
         theme_dir = home + '/.config/themite/themes/termite/'
-        theme_swap(theme_dir + theme)
         #clear the screen, and call the color.sh script
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
+        print("Current theme: " + theme_swap(theme_dir + theme))
+
 
     elif themite == "2":
         #get the list of all the themes in the termite folder
@@ -106,8 +112,8 @@ def main():
                 print(m.group(0))
 
         #take user input and give it as an argument for the theme swap method
-        theme_dir = home + '/.config/themite/themes/termite/config.'
-        theme_swap(theme_dir + input("Theme: "))
+        theme_dir = home + '/.config/themite/themes/termite/'
+        theme_swap(theme_dir + "config." + input("Theme: "))
         #reset the terminal so changes occur immediately, and run color script
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
@@ -122,6 +128,7 @@ def main():
                 line = new_font
             print(line.strip())
         x.close()
+    #Display current theme
 
 main()
 
