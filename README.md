@@ -22,7 +22,7 @@ __Important__
 
 - Make sure your themes for termite are stored in ~/.config/themite/themes/termite/, __WILL NOT__ work in other termite config locations unless you edit the python script. 
 
-- I have set it up recently to be able to replace only colors with theme swaps, to keep fonts and other non color elements constant. But note, your color blocks will have to begin with "[colors]", and end with "[end-colors]" for termite, and for URXVT they will need to begin with "! special" and end with "! end-colors".
+- I have set it up recently to be able to replace only colors with theme swaps, to keep fonts and other non color elements constant. But note, for URXVT color blocks in both config and themes need to begin with "! special" and end with "! end-colors".
 
 - Theme files names should be formatted as "config.themename" for termite, and ".Xresources.themename" for URXVT
 
