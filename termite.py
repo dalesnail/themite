@@ -66,7 +66,7 @@ def theme_swap(t):
         swap.seek(0)
         swap.truncate()
         #write the new theme colors onto the file
-        swap.write(content.replace(config_colors, theme_colors))
+        swap.write(content.replace(config_colors, theme_colors) + "\n#" + currentTheme)
 
     return currentTheme
 
@@ -75,7 +75,12 @@ def main():
     #clear the screen, and print out the splash
     subprocess.check_call(['clear'])
     #themite = input(splash + "\nCurrent theme: " + currentTheme)
-    themite = input(splash)
+    current = open(config, "r")
+    lineList = current.readlines()
+    current.close()
+    currentTheme = lineList[len(lineList) - 1]
+    currentTheme = currentTheme[1:]    
+    themite = input(splash + "\nCurrent theme: " + currentTheme + "\n" )
 
     #handle each case
     if themite == "1":
