@@ -77,18 +77,15 @@ def main():
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
     themite = input(splash + "\nCurrent theme: " + currentTheme + "\n" )
-    themite = input(splash)
 
     #Random
     if themite == "1":
         #get the theme dir, append the randomly selected theme and create path
         theme_dir = home + '/.config/themite/themes/termite/'
         #clear the screen, and call the color.sh script
-        theme_swap(theme_dir + theme)
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
         print("Current theme: " + theme_swap(theme_dir + theme))
-
 
     #List
     elif themite == "2":
@@ -113,10 +110,9 @@ def main():
 
 
         #take user input and give it as an argument for the theme swap method
-        theme_dir = home + '/.config/themite/themes/termite/'
-        theme_swap(theme_dir + "config." + input("Theme: "))
-        #reset the terminal so changes occur immediately, and run color script
         theme_dir = home + '/.config/themite/themes/termite/config.'
+
+        #reset the terminal so changes occur immediately, and run color script
         theme_swap(theme_dir + input("Theme: "))
         subprocess.check_call(['clear'])
         subprocess.call('~/.config/themite/color.sh', shell=True)
