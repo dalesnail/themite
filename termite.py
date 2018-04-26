@@ -47,16 +47,18 @@ def theme_swap(t):
     content = f.read()
 
     #grab the index range of the relevant part (the colors)
-    start = content.index('\n[colors]')
-    end = content.index('\n[end-colors')
-    config_colors = content[start:end]
+    print(content)
+    start = content.index('[colors]')
+    #end = content.index('\n[end-colors')
+    config_colors = content[start:]
 
     #opens the theme they selected
     t = open(t, 'r+')
     tcontent = t.read()
-    tstart = tcontent.index('\n[colors]')
-    tend = tcontent.index('\n[end-colors]')
-    theme_colors = tcontent[tstart:tend]
+    print(tcontent)
+    tstart = tcontent.index('[colors]')
+    #tend = tcontent.index('\n[end-colors]')
+    theme_colors = tcontent[tstart:]
 
     #with block to open and close the existing config file
     with open(config, 'r+') as swap:
@@ -72,7 +74,8 @@ def main():
     #clear the screen, and print out the splash
     subprocess.check_call(['clear'])
     themite = input(splash)
-    
+    print(theme)
+
     #handle each case
     if themite == "1":
         #get the theme dir, and append the randomly selected theme to create the path
