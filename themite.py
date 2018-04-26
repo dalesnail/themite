@@ -35,14 +35,12 @@ x_config = f'{home}/.Xresources'
 def termite_swap(t):
     f = open(t_config, 'r+')
     content = f.read()
-    start = content.index('\n[colors]')
-    end = content.index('\n[end-colors]')
-    config_colors = content[start:end]
+    start = content.index('[colors]')
+    config_colors = content[start:]
     termthem = open(t, 'r+')
     t = termthem.read()
-    tstart = t.index('\n[colors]')
-    tend = t.index('\n[end-colors]')
-    theme_colors = t[tstart:tend]
+    tstart = t.index('[colors]')
+    theme_colors = t[tstart:]
     with open(t_config, 'r+') as swap:
         swap_content = swap.read()
         swap.seek(0)
