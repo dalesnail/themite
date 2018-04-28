@@ -37,7 +37,8 @@ home = expanduser("~")
 #config directory
 config = home + '/.config/termite/config' 
 
-#get the current theme for printing
+#fonts director
+fonts_dir = "/usr/share/fonts/"
 
 #random theme selected
 theme = random.choice(os.listdir(home + '/.config/themite/themes/termite/'))
@@ -69,14 +70,24 @@ def theme_swap(t):
 
     return currentTheme
 
+def clean(list):
+    for str in list:
+        if os.path.isfile(fonts_dir + str):
+            list.remove(str)
+
 def main():
+    #clear screen
     subprocess.check_call(['clear'])
+    
+    #get current theme installed
     current = open(config, "r")
     lineList = current.readlines()
     current.close()
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
-    themite = input(splash + "        Current theme: " + currentTheme + "\n\n" )
+
+    #print out splash and current theme
+    themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\n" )
 
     #Random
     if themite == "1":
@@ -119,8 +130,19 @@ def main():
     
     elif themite == "4":
         #feel like this part can be improved somewhat - maybe provide a list of the system installed fonts?
+        fonts = os.listdir(fonts_dir)
+        clean(fonts)
+        for font_folder in fonts:
+            current_directory = os.listdir(fonts_dir + font_folder)
+            for font_file in current_directory:
+               if "." in font_file:
+                   if font_file[0] == ".":
+                      break
+                   else:
+                       print(font_file[:font_file.index(".")])
+
         font = 'font = '
-        new_font = "font = " + input('Font <Name> <Size>:')
+        new_font = "font = " + input('Font <Name> <Size>: ')
         x = fileinput.input(files=config, inplace=1)
         for line in x:
             if font in line:
