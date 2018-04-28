@@ -132,10 +132,11 @@ def main():
         #feel like this part can be improved somewhat - maybe provide a list of the system installed fonts?
         fonts = os.listdir(fonts_dir)
         clean(fonts)
+
         for font_folder in fonts:
             current_directory = os.listdir(fonts_dir + font_folder)
             for font_file in current_directory:
-               if "." in font_file:
+               if "." in font_file and not("fonts." in font_file):
                    if font_file[0] == ".":
                       break
                    else:
