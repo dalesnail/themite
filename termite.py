@@ -159,11 +159,7 @@ def main():
         current.close()
 
         #checks if an options menu is present
-        if "[options]" in lines:
-            has_options = True
-        else:
-            has_options = False
-
+        has_options = "[options]\n" in lines
 
         if has_options:
             #reopens the file in write mode
