@@ -87,7 +87,7 @@ def print_fonts():
        current_directory = os.listdir(fonts_dir + font_folder)
        for font_file in current_directory:
            #make sure it's a valid font file to be printed
-           if "." in font_file and not("fonts." in font_file):
+           if "." in font_file and not("fonts." in font_file) and not ("gz" in font_file):
               if font_file[0] == ".": #if it's a hidden file, skip it
                  break
               else:                   #otherwise, print it without the file extension
