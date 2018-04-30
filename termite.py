@@ -164,16 +164,20 @@ def main():
         if has_options:
             #reopens the file in write mode
             current = open(config, "w")
-            has_font = False
 
             for line in lines:
                 if "font = " in line:
                     current.write(new_font + "\n")
-                    has_font = True
                 else:
                     current.write(line)
         else:
-            temp = input("options section not found - could not replace\npress enter to continue")
+            current = open(config, "w")
+            current.write("[options]\n" + new_font + "\n")
+            
+            for line in lines:
+                current.write(line)
+
+            
         
         
 main()
