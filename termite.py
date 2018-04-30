@@ -165,15 +165,20 @@ def main():
             #reopens the file in write mode
             current = open(config, "w")
 
+            #copies over the file, replacing the one font line
             for line in lines:
                 if "font = " in line:
                     current.write(new_font + "\n")
                 else:
                     current.write(line)
         else:
+            #reopens the file in write mode
             current = open(config, "w")
+
+            #manually add the options section with the new font
             current.write("[options]\n" + new_font + "\n")
             
+            #copies over everything 
             for line in lines:
                 current.write(line)
 
