@@ -114,9 +114,15 @@ def main():
     current.close()
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
+    currentFont = ""
+
+    for line in lineList:
+        if "font" in line:
+            currentFont = line[line.index("=") + 1:] 
+        
 
     #print out splash and current theme
-    themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\n" )
+    themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\tCurrent Font: " + currentFont + "\n" )
 
     #Random
     if themite == "1":
