@@ -83,8 +83,7 @@ def print_fonts():
         if len(font) > 3:
             #some fonts have commas and show up weird, so we append fix those here
             if "," in font:
-                font = font[font.index(":") + 2:]
-                font = font[:font.index(",")]
+                font = font[font.index(",") + 1:]
                 #some of those fonts with commas also have colons so we fix that here
                 if ':' in font:
                     font = font[:font.index(":")]   
@@ -114,14 +113,17 @@ def main():
     current.close()
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
+    
+    #get the current font
     currentFont = ""
 
+    #loops thru already exising lineList and gets the necessary line
     for line in lineList:
         if "font" in line:
             currentFont = line[line.index("=") + 1:] 
         
 
-    #print out splash and current theme
+    #print out splash, current theme, and current font
     themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\tCurrent Font: " + currentFont + "\n" )
 
     #Random
