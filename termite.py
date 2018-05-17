@@ -191,6 +191,11 @@ def main():
             for line in lines:
                 current.write(line)
 
+        subprocess.check_call(['clear'])
+        subprocess.call('~/.config/themite/color.sh', shell=True)
+        print("\tCurrent theme: " + currentTheme + "\n\tCurrent Font: " + currentFont + "\n")
+
+
 #run main method  
 main()
 
