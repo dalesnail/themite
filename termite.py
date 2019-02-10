@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import math
 from os.path import expanduser
 import random
 import subprocess
@@ -77,31 +78,38 @@ def clean(list):
             list.remove(str)
 
 def print_fonts():
-    #get list of font folders and clean the non-important ones
-    fonts = os.listdir(fonts_dir)
-    clean(fonts)
+    #fonts = os.listdir(fonts_dir) alternative method, call clean() on this, might as well strip the clean method
+    names = os.popen("fc-list :mono:lang=en -f '%{family[0]}\\n' | sort | uniq").read().split("\n")
 
-    #loop thru each folder
-    for font_folder in fonts:
-       #get the current directory it's working with and loop thru it
-       current_directory = os.listdir(fonts_dir + font_folder)
-       for font_file in current_directory:
-           #make sure it's a valid font file to be printed
-           if "." in font_file and not("fonts." in font_file):
-              if font_file[0] == ".": #if it's a hidden file, skip it
-                 break
-              else:                   #otherwise, print it without the file extension
-                  print(font_file[:font_file.index(".")])
+    print_list(names)
+    print()
+
+def print_list(arr):
+    arr = list(set(arr)) # remove duplicates
+    if("" in arr):
+        arr.remove("") # remove empty thingies
+    arr.sort()
+    maxlen = len(max(arr, key=len)) + 2
+    rows, cols = os.popen("stty size", "r").read().split()
+    epl = math.floor(int(cols) / maxlen) # entries per line
+    i = 0
+    for n in arr:
+        i += 1
+        end = (i % epl == 0) and "\n" or " " * (maxlen - len(n))
+        print(n, end = end)
+
 
 def print_themes():
     #creates list of themes
     List = os.listdir(home + '/.config/themite/themes/termite/')
+    themes = []
 
     #loops thru list, and prints out the name of the theme
     for filename in List:
         m = re.search('(?<=config.)\w+', filename)
         if m:
-            print(m.group(0))
+            themes.append(m.group(0))
+    print_list(themes)
 
 def main():
     #clear screen
