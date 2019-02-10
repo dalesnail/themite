@@ -80,7 +80,6 @@ def clean(list):
 def print_fonts():
     #fonts = os.listdir(fonts_dir) alternative method, call clean() on this, might as well strip the clean method
     names = os.popen("fc-list :mono:lang=en -f '%{family[0]}\\n' | sort | uniq").read().split("\n")
-
     print_list(names)
     print()
 
