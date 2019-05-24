@@ -70,29 +70,29 @@ def theme_swap(t):
 
     return currentTheme
 
-#helper method to clean list of font files
-def clean(list):
-    for str in list:
-        if os.path.isfile(fonts_dir + str):
-            list.remove(str)
-
+#method to print out fonts
 def print_fonts():
-    #get list of font folders and clean the non-important ones
-    fonts = os.listdir(fonts_dir)
-    clean(fonts)
+    #gets the output of the command 'fc-list' which lists all the fonts installed
+    fonts = subprocess.run(['fc-list'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    #split it on each newline
+    fonts = fonts.split("\n")
 
-    #loop thru each folder
-    for font_folder in fonts:
-       #get the current directory it's working with and loop thru it
-       current_directory = os.listdir(fonts_dir + font_folder)
-       for font_file in current_directory:
-           #make sure it's a valid font file to be printed
-           if "." in font_file and not("fonts." in font_file):
-              if font_file[0] == ".": #if it's a hidden file, skip it
-                 break
-              else:                   #otherwise, print it without the file extension
-                  print(font_file[:font_file.index(".")])
-
+    #loop thru each font, and grabbing the important part (its name)
+    for font in fonts:
+        #makes sure its a valid entry in the list
+        if len(font) > 3:
+            #some fonts have commas and show up weird, so we append fix those here
+            if "," in font:
+                font = font[font.index(",") + 1:]
+                #some of those fonts with commas also have colons so we fix that here
+                if ':' in font:
+                    font = font[:font.index(":")]   
+            #otherwise, we just grab the part in between the colons and print it out 
+            else:
+                font = font[font.index(":") + 2:]
+                font = font[:font.index(":")]   
+            print(font)
+ 
 def print_themes():
     #creates list of themes
     List = os.listdir(home + '/.config/themite/themes/termite/')
@@ -113,9 +113,18 @@ def main():
     current.close()
     currentTheme = lineList[len(lineList) - 1]
     currentTheme = currentTheme[1:]    
+    
+    #get the current font
+    currentFont = ""
 
-    #print out splash and current theme
-    themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\n" )
+    #loops thru already exising lineList and gets the necessary line
+    for line in lineList:
+        if "font" in line:
+            currentFont = line[line.index("=") + 1:] 
+        
+
+    #print out splash, current theme, and current font
+    themite = input(splash + "\tCurrent theme: " + currentTheme + "\n\tCurrent Font: " + currentFont + "\n" )
 
     #Random
     if themite == "1":
@@ -182,9 +191,12 @@ def main():
             for line in lines:
                 current.write(line)
 
-            
-        
-        
+        subprocess.check_call(['clear'])
+        subprocess.call('~/.config/themite/color.sh', shell=True)
+        print("\tCurrent theme: " + currentTheme + "\n\tCurrent Font: " + currentFont + "\n")
+
+
+#run main method  
 main()
 
 #exit from termite, and reopen
