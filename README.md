@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/dalesnail/themite/master/title.png"><br>
-  Automated customization for termite and urxvt
+  Automated customization for termite and urxvt terminals
 </div>
 
 # Update
