@@ -8,7 +8,7 @@ Will be updating this to work with xst. Should be an easy adaptation to make, si
 
 # Install
 
-- ~~~~git clone https://github.com/dalesnail/themite.git~~~~ into ~/.config
+- `git clone https://github.com/dalesnail/themite.git` into ~/.config
 
 - cd ~/.config/themite
 
