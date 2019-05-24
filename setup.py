@@ -20,7 +20,4 @@ python {mitepath}/themite.py""")
 f.close()
 
 #Make executable
-#os.chmod(run, stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
 make_executable(run)
-
-print(mitepath)
