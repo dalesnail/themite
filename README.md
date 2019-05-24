@@ -23,7 +23,9 @@ __Important__
 - Theme files names should be formatted as "config.themename" for termite, and ".Xresources.themename" for URXVT
 
 
-__Usage__
+# Usage
+
+After install, just type in `themite` and you will be presented with options to use
 
 Arguments have been added to the script here to make for quicker theme swapping. 
 
