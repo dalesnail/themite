@@ -4,13 +4,11 @@
 </div>
 
 # Update
-Will be updating this to work with xst. Should be an easy adaptation to make, since xst isset up to use your .Xresources file.  
-
------------------------------------------------
+Will be updating this to work with xst. Should be an easy adaptation to make, since xst is set up to use your .Xresources file.  
 
 # Install
 
-- Git clone this repo to ~/.config
+- ~~~~git clone https://github.com/dalesnail/themite.git~~~~ into ~/.config
 
 - cd ~/.config/themite
 
