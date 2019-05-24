@@ -143,3 +143,6 @@ if not any(vars(args).values()):
 
         elif Choose == '2':
             os.system('python ~/.config/themite/urxvt.py')
+
+    elif os.path.exists(termite) == False and os.path.exists(urxvt) == False:
+        print("!!!Could not find termite or urxvt!!!")
