@@ -4,25 +4,23 @@
 </div>
 
 # Update
-Updated this to work with URXVT. This is a trial for now, but it seems to be working as it should. Only difference from termite being you have to restart after setting the theme. 
-
-If you only have one or the other installed, it should run the appropriate script for the installed program. 
-
-In the unlikely event both are installed it will prompt you to choose which one to change. 
+Will be updating this to work with xst. Should be an easy adaptation to make, since xst isset up to use your .Xresources file.  
 
 -----------------------------------------------
 
-- Git clone or copy into '~/.config/'.
+# Install
 
-- Run with 'python ~/.config/themite/themite.py'. 
+- Git clone this repo to ~/.config
 
-- Make a bash alias for this, pretty annoying to type in otherwise. 
+- cd ~/.config/themite
+
+- sudo setup.py
 
 __Important__
 
-- Make sure your themes for termite are stored in ~/.config/themite/themes/termite/, __WILL NOT__ work in other termite config locations unless you edit the python script. 
+- Make sure your termite config is stored at "/.config/termite/config", and your themes are stored in ~/.config/themite/themes/"Whatever terminal you use", __WILL NOT__ work in other config locations unless you edit the python script. I am working to make this more universal, but for now stick with this format. 
 
-- I have set it up recently to be able to replace only colors with theme swaps, to keep fonts and other non color elements constant. But note, for URXVT color blocks in both config and themes need to begin with "! special" and end with "! end-colors".
+- I have set it up recently to be able to replace only colors with theme swaps, to keep fonts and other non color elements constant. But note, for URXVT color blocks in both Xresources and themes need to begin with "! special" and end with "! end-colors". In termite your color block should begin with "[colors]"
 
 - Theme files names should be formatted as "config.themename" for termite, and ".Xresources.themename" for URXVT
 
