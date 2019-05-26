@@ -12,7 +12,7 @@ Will be updating this to work with xst. Should be an easy adaptation to make, si
 
 - cd ~/.config/themite
 
-- sudo setup.py
+- sudo python setup.py
 
 __Important__
 
