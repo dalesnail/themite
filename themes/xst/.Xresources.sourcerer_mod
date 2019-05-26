@@ -1,0 +1,46 @@
+!
+!   ██████  ██████  ██   ██ ██████  █████   █████  ██████  █████  ██████
+!  ██░░░░  ██░░░░██░██  ░██░░██░░████░░░██ ██░░░██░░██░░████░░░██░░██░░██
+! ░░█████ ░██   ░██░██  ░██ ░██ ░░░██  ░░ ░███████ ░██ ░░░███████ ░██ ░░
+!  ░░░░░██░██   ░██░██  ░██ ░██   ░██   ██░██░░░░  ░██   ░██░░░░  ░██   
+!  ██████ ░░██████ ░░██████░███   ░░█████ ░░██████░███   ░░██████░███   
+! ░░░░░░   ░░░░░░   ░░░░░░ ░░░     ░░░░░   ░░░░░░ ░░░     ░░░░░░ ░░░   
+!  r  e  a  d     c  o  d  e     l  i  k  e     a     w  i  z  a  r  d 
+!
+! sourcerer by xero harrison (http://sourcerer.xero.nu)
+!  ├─ based on sorcerer by Jeet Sukumaran (http://jeetworks.org)
+!  └─ based on mustang by Henrique C. Alves (hcarvalhoalves@gmail.com)
+! special
+! █▓▒░ scorcerer colors
+st.foreground:   #c2c2b0
+st.background:   #20292d
+st.cursorColor:  #c2c2b0
+! black
+st.color0:       #111111
+st.color8:       #181818
+! red
+st.color1:       #aa4450
+st.color9:       #ff6a6a
+! green
+st.color2:       #719611
+st.color10:      #b1d631
+! yellow
+st.color3:       #ff9800
+st.color11:      #87875f
+! blue
+st.color4:       #6688aa
+st.color12:      #90b0d1
+! magenta
+st.color5:       #8f6f8f
+st.color13:      #8181a6
+! cyan
+st.color6:       #528b8b
+st.color14:      #87ceeb
+! white
+st.color7:       #d3d3d3
+st.color15:      #c1cdc1
+! stylized
+st.colorIT:      #719611
+st.colorBD:      #d3d3d3
+st.colorUL:      #528b8b
+! end-colors

@@ -29,6 +29,8 @@ After install, just type in `themite` and you will be presented with options to 
 
 Arguments have been added to the script here to make for quicker theme swapping. 
 
+- '-h' - This will bring up a full list of avaliable arguments to use themite as a CLI program.
+
 - -ttheme and -utheme - This will change the theme for termite(-ttheme) and URXVT(utheme), if you use "Random" a random theme will be chosen. Format: 'themite -ttheme "ProfileName"'
 
 - -list - This will list the available themes, t for termite u for URXVT. e.g. "themite -list t"
