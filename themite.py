@@ -179,7 +179,8 @@ if len(sys.argv)==1:
         os.system('python ~/.config/themite/xst.py')
    
  
-    elif (not termite and urxvt and xst) or (termite and not urxvt and xst):
+    # Would like to shorten this down if possible, but dont currently know how to, if you see this and know a way to cleanly shorten this, please send it over on github!
+    elif (not termite and urxvt and xst) or (termite and not urxvt and xst) or (termite and urxvt and not xst):
         subprocess.check_call(['clear'])
         Choose = input(splash)
         if Choose == '1':
