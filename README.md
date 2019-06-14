@@ -4,15 +4,15 @@
 </div>
 
 # Update
-Will be updating this to work with xst. Should be an easy adaptation to make, since xst is set up to use your .Xresources file.  
+This is now working as it should with xst, if you have any issues let me know and I will do my best to update this. 
 
 # Install
 
 - `git clone https://github.com/dalesnail/themite.git` into ~/.config
 
-- cd ~/.config/themite
+- `cd ~/.config/themite`
 
-- sudo python setup.py
+- `sudo python setup.py`
 
 __Important__
 
@@ -31,11 +31,11 @@ Arguments have been added to the script here to make for quicker theme swapping.
 
 - '-h' - This will bring up a full list of avaliable arguments to use themite as a CLI program.
 
-- -ttheme and -utheme - This will change the theme for termite(-ttheme) and URXVT(utheme), if you use "Random" a random theme will be chosen. Format: 'themite -ttheme "ProfileName"'
+- -ttheme, -utheme, and -xstheme - This will change the theme for termite(-ttheme), URXVT(utheme), and xst(xstheme) if you use "Random" a random theme will be chosen. Format: 'themite -ttheme "ProfileName"'
 
-- -list - This will list the available themes, t for termite u for URXVT. e.g. "themite -list t"
+- -list - This will list the available themes, t for termite, u for URXVT, and x for xst. e.g. "themite -list t"
 
-- -font - this will put you into the prompt for a new font, same as above, t for termite u for urxvt. e.g. "themite -font t"
+- -font - this will put you into the prompt for a new font, x for xst, u for......yadda yadda you get it at this point. e.g. "themite -font t"
 
 Enjoy!
 
