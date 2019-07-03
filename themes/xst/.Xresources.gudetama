@@ -1,0 +1,38 @@
+! Themite
+! special
+*.foreground:   #d2d3d5
+*.background:   #1d1d1b
+*.cursorColor:  #d2d3d5
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #d37a70
+*.color9:       #d37a70
+
+! green
+*.color2:       #ffffff
+*.color10:      #ffffff
+
+! yellow
+*.color3:       #f18a01
+*.color11:      #f18a01
+
+! blue
+*.color4:       #dcc045
+*.color12:      #dcc045
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #d2d3d5
+
+! white
+*.color7:       #666666
+*.color15:      #e6e3bd
+! end-colors
