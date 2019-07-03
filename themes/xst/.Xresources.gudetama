@@ -9,12 +9,12 @@
 *.color8:       #373b41
 
 ! red
-*.color1:       #d37a70
+*.color1:       #ffffff
 *.color9:       #d37a70
 
 ! green
 *.color2:       #ffffff
-*.color10:      #ffffff
+*.color10:      #d37a70
 
 ! yellow
 *.color3:       #f18a01
