@@ -10,20 +10,20 @@ Custom Theme by Cameron Mills aka DaleSnail
 
 ! Themite
 ! special
-*.foreground:   #e6e3bd
+*.foreground:   #ffffff
 *.background:   #1d1d1b
-*.cursorColor:  #e6e3bd
+*.cursorColor:  #ffffff
 
 ! black
 *.color0:       #282a2e
 *.color8:       #373b41
 
 ! red
-*.color1:       #ffffff
+*.color1:       #e6e3bd
 *.color9:       #d37a70
 
 ! green
-*.color2:       #ffffff
+*.color2:       #e6e3bd
 *.color10:      #d37a70
 
 ! yellow
