@@ -1,8 +1,8 @@
 ! Themite
 ! special
-*.foreground:   #d2d3d5
+*.foreground:   #e6e3bd
 *.background:   #1d1d1b
-*.cursorColor:  #d2d3d5
+*.cursorColor:  #e6e3bd
 
 ! black
 *.color0:       #282a2e
@@ -21,7 +21,7 @@
 *.color11:      #f18a01
 
 ! blue
-*.color4:       #dcc045
+*.color4:       #666666
 *.color12:      #dcc045
 
 ! magenta
@@ -35,5 +35,4 @@
 ! white
 *.color7:       #666666
 *.color15:      #e6e3bd
-
 ! end-colors
