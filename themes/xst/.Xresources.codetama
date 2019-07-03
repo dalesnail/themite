@@ -27,8 +27,8 @@ Custom Theme by Cameron Mills aka DaleSnail
 *.color10:      #d37a70
 
 ! yellow
-*.color3:       #dc9639
-*.color11:      #e6982f
+*.color3:       #ff7600
+*.color11:      #ff9200
 
 ! blue
 *.color4:       #666666
