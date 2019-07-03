@@ -19,11 +19,11 @@ Custom Theme by Cameron Mills aka DaleSnail
 *.color8:       #373b41
 
 ! red
-*.color1:       #e6e3bd
+*.color1:       #ece8af
 *.color9:       #d37a70
 
 ! green
-*.color2:       #e6e3bd
+*.color2:       #ece8af
 *.color10:      #d37a70
 
 ! yellow
